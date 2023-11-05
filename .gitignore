@@ -9,8 +9,8 @@
 *.obj
 *.i
 .idea/
-.sln
-.vcxproj
-.filters
-.user
+*.sln
+*.vcxproj
+*.filters
+*.user
 x64/
