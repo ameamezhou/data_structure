@@ -34,12 +34,12 @@ void lvU(int n) {
 	// ...
 	if (n > 1) {
 		lvU(n - 1)
-	}
-	printf("count %d", n)
+	};
+	printf("count %d", n);
 }
 
 int main_forlvU() {
-	lvU(5)
+	lvU(5);
 }
 // 每一次调用都会有 n 和 a b c 的存储，递归调用导致函数过多的开销，所以我们这个问题规模为n 那么空间复杂度也为 O(n)
 // 空间复杂度一般就对应调用的深度
@@ -48,7 +48,7 @@ void lvU(int n) {
 	// ...
 	if (n > 1) {
 		lvU(n - 1)
-	}
+	};
 	printf("count %d", n)
 }
 // 当调用的时候是会改变每次递归的所需空间的话  例如上所示  就要用等差数列求和，得到此次调用的空间复杂度为 O(n)

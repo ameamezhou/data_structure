@@ -3,7 +3,7 @@ void loveYou(int n) {
 	while (i <= n) {
 		i++;
 		printf("I love you %d", i)
-	}
+	};
 }
 
 int main() {
@@ -37,8 +37,8 @@ void test1(int flag[], int n) {
 		if (flag[i] == n) {
 			printf("find num %d \n", n);
 			break
-		}
-	}
+		};
+	};
 }
 // flag 数组中是乱序存放 1-n这些数
 // 考虑最好的情况和最坏的情况  O(1)  O(n)
