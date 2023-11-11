@@ -95,5 +95,13 @@ void DeleteRepeatedElem(LinkList &L) {
         }
         q=q->next;
     }
+    p = p->next;
+    q = p->next;
+    while (p != NULL) {
+        free(p);
+        p = q;
+        if (q != NULL)
+            q = p->next;
+    }
 
 }

@@ -60,6 +60,7 @@ bool bracketCheck(char str[], int length) {
 }
 
 // 表达式计算种的应用
+#include <bits/stdc++.h>
 
 // 中缀表达式
 // 中缀转后缀
