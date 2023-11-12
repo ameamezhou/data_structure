@@ -1,6 +1,6 @@
 #include <iostream>
 
-#define MaxLen 255;
+#define MaxLen 255
 // 字符串的朴素匹配
 typedef struct {
 	char ch[MaxLen];
@@ -14,7 +14,7 @@ bool SubString(SString& Sub, SString S, int pos, int len) {
 	for (int i = pos; i < pos + len; i++)
 		Sub.ch[i - pos + 1] = S.ch[i];
 	Sub.length = len;
-	return ture
+	return true;
 }
 
 // 比较大小
@@ -66,6 +66,23 @@ int SimpleMatch(SString S, SString T) {
 // 最差时间复杂度 O(m*n)
 
 // KMP 算法
+#include <bits/stdc++.h>
+using namespace std;
+vector<int> getNext(string t) {
+	int i=0, j=-1, n =t.size();
+	vector<int>Next(n+1);
+	Next[0] = -1;
+	while(i < n) {
+		if(j == -1 || t[i] == t[j]) {
+			++i; ++j;
+			Next[i] = j;
+		}
+		else j = Next[j];
+	}
+	for (i = 0; i<n; i++) printf("%d ", Next[i]+1);
+	printf("\n");
+	return Next;
+}
 // 算法实现
 int KMPMatch(SString S, SString T, int next[]) {
 	int i = 1, j = 1;
@@ -75,7 +92,7 @@ int KMPMatch(SString S, SString T, int next[]) {
 			++j;
 		}
 		else {
-			j = index[j];
+			j = next[j];
 		}
 	}
 	if (j > T.length)
