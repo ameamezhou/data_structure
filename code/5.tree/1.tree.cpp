@@ -35,6 +35,22 @@ void initBiTree(BiTree& b) {
 	b->rchild = NULL;
 }
 
+BiTNode *Create(){
+	int d;
+	scanf("%d", &d);
+	ElemType data;
+	data.value = d;
+	if (data.value == -1) {
+		return NULL;
+	}
+	BiTree T = (BiTNode *)malloc(sizeof(BiTNode));
+	T->data = data;
+	T->lchild = Create();
+	T->rchild = Create();
+
+	return T;
+}
+
 // 插入新节点
 /*
 BiTNode * p = (BiTNode *) malloc(sizeof(BiTNode));
@@ -50,6 +66,23 @@ void PreOrder(BiTree T) {
 		visit(T);
 		PreOrder(T->lchild);
 		PreOrder(T->rchild);
+	}
+}
+
+void PreOrder2(BiTree T){
+	stack<BiTree> s;
+	BiTNode *p = T;
+	while (p || !s.empty()) {
+		if (p) {
+			printf("%d ", p->data);
+			s.push(p);
+			p = p->lchild;
+		}
+		else {
+			p = s.top();
+			s.pop();
+			p = p->rchild;
+		}
 	}
 }
 
@@ -70,6 +103,12 @@ void afterOrder(BiTree T) {
 		afterOrder(T->rchild);
 		visit(T);
 	}
+}
+
+// 非递归的后续遍历
+struct element{
+	BiTNode *ptr;
+	int flag;
 }
 
 // 层序遍历
@@ -96,5 +135,22 @@ void levelOrder(BiTree T) {
 			EnQueue(Q, p->lchild);
 		if (p->rchild != NULL)
 			EnQueue(Q, p->rchild);
+	}
+}
+
+#include <bits/stdc++.h>
+using namespace std;
+
+void levelOrder(BiTree T) {
+	queue<BiTNode *> q;
+	BiTree p = NULL;
+	q.push(T);
+	while (!q.empty()){
+		p = q.front();
+		q.pop();
+		if (p->lchild != NULL)
+			q.push(p->lchild);
+		if (p->rchild != NULL)
+			q.push(p->rchild);
 	}
 }

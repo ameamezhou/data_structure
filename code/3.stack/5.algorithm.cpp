@@ -51,13 +51,38 @@ void FullAlignment(int n, int deep){
     }
 }
 
-int main(){
-    int n;
-    while (~scanf("%d", &n)) {
-        memset(flag, 0, sizeof(flag));
-        FullAlignment(n, 0);
-    }
-    return 0;
-}
+// int main(){
+//     int n;
+//     while (~scanf("%d", &n)) {
+//         memset(flag, 0, sizeof(flag));
+//         FullAlignment(n, 0);
+//     }
+//     return 0;
+// }
 
 // 八皇后
+
+int n = 8;
+vector<int> flag = vector<int>(n);
+int row = 0;
+int count = 0;
+bool check(vector<int> f, int row){
+    for (int j = 0; j < row; j++) {
+        if (row == f[j] || abs(row - j) == abs(f[row] - f[j]))
+            return false;
+    }
+    return true;
+}
+
+int queen(vector<int> f, int row, int n, int &count){
+    if (row == n) {
+        count++;
+        return 0;
+    }
+    for (int i = 0; i < f.size(); ++i) {
+        f[row] = i;
+        if (check(f, row)) {
+            queen(f, row+1, n, count);
+        }
+    }
+}
