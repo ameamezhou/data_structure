@@ -205,3 +205,15 @@ int CalculateDiameter(BiTree T) {
     Diameter = Diameter>(ld+rd)?Diameter:(ld+rd);
     return (ld>rd?ld:rd) + 1;
 }
+
+// 最近公共祖先(pipioj1265)
+// 非递归
+
+
+// 递归
+
+// 求根节点到叶子节点数字之和
+// 1->2->3 表示数字 123
+void Sum(){
+    
+}
