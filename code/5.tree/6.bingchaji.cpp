@@ -124,7 +124,7 @@ int main(){
 
 // 找到父节点
 int getF(int x, int f[]) {
-    return x==f[x]?x:f[x] = getF(f[x]);
+    return x==f[x]?x:f[x] = getF(f[x], f);
 }
 
 int jc[8][2] = {{1,0},{-1,0},{0,1},{0,-1},{1,1},{1,-1},{-1,1},{-1,-1}};
@@ -167,6 +167,59 @@ int youtian() {
             }
         }
         printf("%d", cnt);
+    }
+    return 0;
+}
+
+// 这个题目用图的广度优先遍历也可以完成
+#define N 100
+bool F[N][N];
+char mp[N][N];
+
+void dfs(int x, int y, int n, int m){
+    F[x][y] = 1;
+    for (int i = 0; i < 8; i++) {
+        int nx = x + jc[i][0];
+        int ny = y + jc[i][1];
+        if(nx >=0 && ny >= 0 && nx <= n && ny <= m && mp[nx][ny] == '@' && F[nx][ny] != 1) {
+            dfs(nx, ny, n, m);
+        }
+    }
+}
+
+int dfsTrval(int n, int m){
+    int result = 0;
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < m; ++j) {
+            if (!F[i][j] && mp[i][j] == '@') {
+                dfs(i, j, n, m);
+                result++;
+            }
+        }
+    }
+    return result;
+}
+
+
+
+int youtian2() {
+    int n, m;
+    while (scanf("%d%d", &n, &m)) {
+        if (n == 0 && m == 0) {
+            break;
+        }
+        char mp[n][m];
+        for (int k = 0; k < n; ++k) {
+            scanf("%s", mp[k]);
+        }
+
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < m; ++j) {
+                F[i][j] = 0;
+            }
+        }
+
+
     }
     return 0;
 }
