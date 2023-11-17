@@ -288,7 +288,7 @@ void dologic3(MGraph3 G){
         for (int i = 0; i < n; ++i) {
             printf("%d ", result[i]);
         }
-        printf("\n")
+        printf("\n");
     }
 
 }
