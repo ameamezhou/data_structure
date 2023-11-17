@@ -70,7 +70,7 @@ int prim(MGraph G) {    // 普利姆算法
             if (!f[j]) {
                 if (!flag) {
                     temp = G.arcs[i][j];
-                    index = j;
+                    index = j; 
                 } else {
                     if (G.arcs[i][j] < temp) {
                         index = j;
