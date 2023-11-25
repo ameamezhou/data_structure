@@ -33,7 +33,7 @@ void lvU(int n) {
 	int a, b, c;
 	// ...
 	if (n > 1) {
-		lvU(n - 1)
+		lvU(n - 1);
 	};
 	printf("count %d", n);
 }
@@ -47,8 +47,8 @@ void lvU(int n) {
 	int flag[n];
 	// ...
 	if (n > 1) {
-		lvU(n - 1)
+		lvU(n - 1);
 	};
-	printf("count %d", n)
+	printf("count %d", n);
 }
-// 当调用的时候是会改变每次递归的所需空间的话  例如上所示  就要用等差数列求和，得到此次调用的空间复杂度为 O(n)
+// 当调用的时候是会改变每次递归的所需空间的话  例如上所示  就要用等差数列求和，得到此次调用的空间复杂度为 O(n^2)

@@ -2,7 +2,7 @@ void loveYou(int n) {
 	int i = 1;
 	while (i <= n) {
 		i++;
-		printf("I love you %d", i)
+		printf("I love you %d", i);
 	};
 }
 
@@ -26,7 +26,7 @@ void test(int n) {
 	int i = 1;
 	while (i <= n) {
 		i = i * 2;
-		printf("i love you %d\n", i)
+		printf("i love you %d\n", i);
 	}
 }
 // 指数递增型  T(n) = O(log.2(n))
@@ -36,7 +36,7 @@ void test1(int flag[], int n) {
 	for (int i = 0; i < n; i++) {
 		if (flag[i] == n) {
 			printf("find num %d \n", n);
-			break
+			break;
 		};
 	};
 }

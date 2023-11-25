@@ -73,7 +73,7 @@ ThreadNode* FirstNode(ThreadNode* p) {
 	{
 		p = p->lchild;
 	}
-	return p
+	return p;
 }
 
 // 在中序线索二叉树中找到结点p的后继结点
@@ -100,7 +100,7 @@ ThreadNode* LastNode(ThreadNode* p) {
 	{
 		p = p->rchild;
 	}
-	return p
+	return p;
 }
 
 ThreadNode* PreNode(ThreadNode* p) {
