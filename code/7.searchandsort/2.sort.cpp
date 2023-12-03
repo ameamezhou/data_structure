@@ -19,7 +19,7 @@ void InsertSort(int L[], int n) {
     for (i = 1; i < n; ++i) {
         if (L[i] < L[i-1]){
             tmp = L[i];
-            for (j = i-1; L[j] > L[0]; --j)
+            for (j = i-1; L[j] > tmp; --j)
                 L[j+1] = L[j];
             L[j+1] = tmp;
         }
@@ -65,7 +65,6 @@ void shellSort(int A[], int n) {
 
 // 冒泡排序
 void bubbleSort(int A[], int n) {
-    int temp;
     for (int i = 0; i < n-1; i++) {
         bool flag = false;
         for (int j = n - 2; j >= i; j--) {
@@ -142,7 +141,7 @@ void heapSort(int A[], int n) {
     buildBigHeap(A, n);
     for (int i = n; i > 1; i--) {
         swap(A[i], A[1]);
-        buildBigHeap(A, 1, i-1);
+        buildLogic(A, 1, i-1);
     }
 }
 
